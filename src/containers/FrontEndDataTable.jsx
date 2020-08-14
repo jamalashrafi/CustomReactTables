@@ -7,14 +7,17 @@ const FrontEndDataTable = () => {
   const [totalRecords, setTotalRecords] = useState([]);
   const [recordsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchApiData = async () => {
+      setLoading(true);
       let { data } = await axios.get(
         `https://jsonplaceholder.typicode.com/posts`
       );
-      // console.log(data);
+
       setTotalRecords(data);
+      setLoading(false);
     };
     fetchApiData();
   }, []);
@@ -26,14 +29,12 @@ const FrontEndDataTable = () => {
     firstRecordOfCurrentPage,
     lastRecordOfCurrentPage
   );
-  console.log('-----------');
-  console.log(totalPages);
-  console.log(firstRecordOfCurrentPage);
-  console.log(lastRecordOfCurrentPage);
-  console.log(totalRecords.length);
-  console.log(recordsOfCurrentPage.length);
 
   const changeCurrentPage = (pageNumber) => setCurrentPage(pageNumber);
+
+  if (loading) {
+    return 'Loading...';
+  }
 
   return (
     <div>
