@@ -2,37 +2,76 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  height: 90vh;
+}
+
+.container {
+  border-right: 1px solid black;
+  padding: 1rem;
+}
+
+.tableWraper {
+  border-radius: 10px;
+}
+
+#table {
+  border-collapse: collapse;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+#table th {
+  background-color: #5e72e4;
+}
+
+#table th,
+td {
+  padding: 0.5rem;
+}
+#table tr {
+  border: 1px solid rgb(199, 194, 194);
+}
+
+#table tr:nth-child(even) {
+  background-color: rgb(238, 238, 238);
+}
+#table tr:hover {
+  background-color: rgb(220, 226, 226);
+  font-weight: 500;
+}
+
+.paginationContainer {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-top: 0.7rem;
 }
 
-.App-link {
-  color: #61dafb;
+.paginationSpan {
+  display: inline-block;
+  border-right: 1px solid #fff;
+  padding: 0.4rem;
+  min-width: 0.8rem;
+  background-color: rgb(48 102 125);
+  color: #fff;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.paginationSpan:nth-child(1) {
+  border-radius: 3px 0 0 3px;
+}
+.paginationSpan:nth-last-of-type(1) {
+  border-radius: 0 3px 3px 0;
+}
+.paginationPrev {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.paginationNext {
+  margin-left: 2px;
+  cursor: pointer;
 }
